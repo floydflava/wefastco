@@ -58,7 +58,7 @@ class Item(models.Model):
     created_on = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     slug = models.SlugField()
     description = models.TextField()
-    image = models.ImageField()
+    image = models.ImageField(default='/static/img/product.png')
     tags = TaggableManager()
     
     class Meta:
@@ -85,7 +85,7 @@ class Item(models.Model):
 
 class ItemImage(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField()
+    image = models.ImageField(default='/static/img/product.png')
 
 
 
