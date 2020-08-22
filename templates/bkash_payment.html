@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <main >
+    <div class="container wow fadeIn">
+
+        
+        
+       
+        
+        <div>
+            
+        
+           <h1 class="my-5 h2 text-center"><img src='/static/img/bkash.svg' class='iconDetails'>Bkash Payment</h1>
+        
+        </div>
+      
+      
+      
+
+      <div class="row">
+
+        {% for order_item in order.items.all %}
+         <p style="padding:20px;">Dear customer, first you need to send <b style="color:#EF1C79;">৳{{ order_item.get_final_price }}</b> from your bKash account to <b style="color:#EF1C79;">01777424142</b> (personal Bkash account). Complete your payment by submitting the transaction number obtained from there in the form below. </p>
+        
+         {% endfor %}
+        <div class="col-md-12 mb-4">
+          
+           {% load crispy_forms_tags %} 
+                    
+                    
+                    
+                    
+                    <form action="." method="post" >
+                       {% csrf_token %}
+                        
+                        
+                        <label for="billing_address2" class="">Transaction Number</label>
+                        <input type='text'  name="transaction" placeholder='ex: Gjxt567ashy90kj' class='form-control'>
+                        
+                    
+                    
+                    <button type="submit" class="btn btn-success">Submit payment</button>
+                    </form>
+          
+        </div>
+
+        {% include "order_snippet.html" %}
+
+      </div>
+
+    </div>
+  </main>
+
+
+{% endblock content %}
+
+

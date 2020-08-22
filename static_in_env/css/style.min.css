@@ -1,0 +1,360 @@
+.view,
+body,
+html {
+    height: 100%
+}
+
+.carousel {
+    height: 50%
+}
+
+.carousel .carousel-inner,
+.carousel .carousel-inner .active,
+.carousel .carousel-inner .carousel-item {
+    height: 100%
+}
+
+
+.footertopfix {
+    margin-top: 100px !important;
+}
+
+
+.ordertopfix {
+    margin-top: 80px !important;
+}
+
+.descartfix {
+    padding: 8px;
+}
+
+
+
+@media (max-width:1024px) {
+    .custom-login {
+
+        width: 445px !important;
+
+    }
+
+    .f-pass {
+
+        width: 445px !important;
+
+    }
+
+    .facebooktest {
+
+
+        width: 455px !important;
+
+
+    }
+
+    .footertopfix {
+        margin-top: 660px !important;
+    }
+
+    .ordertopfix {
+        margin-top: 200px !important;
+    }
+
+}
+
+
+@media (max-width:776px) {
+    .carousel {
+        height: 100%
+    }
+}
+
+@media (max-width:768px) {
+
+    .btnfixremove {
+        margin-top: 15px !important;
+
+    }
+
+    .custom-login {
+
+        width: 325px !important;
+
+    }
+
+    .f-pass {
+
+        width: 325px !important;
+
+    }
+
+    .facebooktest {
+
+
+        width: 335px !important;
+
+
+    }
+
+
+
+    .footertopfix {
+        margin-top: 320px !important;
+    }
+
+
+
+}
+
+@media (max-width:414px) {
+
+    .btnfixremove {
+        margin-top: 0px !important;
+
+    }
+
+    .logintextfix {
+
+        margin-left: -80px !important;
+        width: 280px !important;
+
+    }
+
+    .signuptextfix {
+        margin-left: -80px !important;
+        width: 280px !important;
+    }
+
+
+    .custom-login {
+
+        margin-left: 0px !important;
+        width: 280px !important;
+
+    }
+
+    .f-pass {
+
+        margin-left: 0px !important;
+        width: 280px !important;
+
+    }
+
+    .facebooktest {
+
+        margin-left: -120px !important;
+        width: 280px !important;
+
+
+    }
+
+    .formfix {
+        margin-left: -80px !important;
+        width: 290px !important;
+
+    }
+
+    .formfixsignup {
+        margin-left: -80px !important;
+        width: 290px !important;
+    }
+
+    .footertopfix {
+        margin-top: 220px !important;
+    }
+
+
+}
+
+@media (max-width:450px) {
+
+    .imagefixtop {
+        margin-top: -95px !important;
+    }
+
+
+    .btnfixremove {
+        margin-top: 0px !important;
+
+    }
+
+    .custom-login {
+
+        margin-left: 0px !important;
+        width: 350px !important;
+
+    }
+
+    .f-pass {
+
+        margin-left: 0px !important;
+        width: 350px !important;
+
+    }
+
+    .facebooktest {
+
+        margin-left: -120px !important;
+        width: 350px !important;
+
+
+    }
+
+    .formfix {
+        margin-left: -80px !important;
+        width: 350px !important;
+
+    }
+
+
+    .formfixsignup {
+        margin-left: -80px !important;
+        width: 350px !important;
+    }
+
+
+
+    .logintextfix {
+
+        margin-left: -80px !important;
+        width: 350px !important;
+    }
+
+    .signuptextfix {
+        margin-left: -80px !important;
+        width: 350px !important;
+    }
+
+    .ordertopfix {
+        margin-top: 60px !important;
+    }
+
+    .orderfix {
+        width: 500px !important;
+    }
+
+
+    .footertopfix {
+        margin-top: 120px !important;
+    }
+
+
+
+}
+
+@media (max-width:375px) {
+
+    .btnfixremove {
+        margin-top: 15px !important;
+
+    }
+
+    .logintextfix {
+
+        margin-left: -70px !important;
+        width: 300px !important;
+
+    }
+
+    .signuptextfix {
+        margin-left: -70px !important;
+        width: 300px !important;
+    }
+
+    .custom-login {
+
+        margin-left: 0px !important;
+        width: 300px !important;
+
+    }
+
+    .f-pass {
+
+        margin-left: 0px !important;
+        width: 300px !important;
+
+    }
+
+    .facebooktest {
+
+        margin-left: -110px !important;
+        width: 300px !important;
+
+
+    }
+
+    .formfix {
+        margin-left: -70px !important;
+        width: 300px !important;
+
+    }
+
+    .formfixsignup {
+        margin-left: -70px !important;
+        width: 300px !important;
+    }
+
+}
+
+
+@media (max-width:320px) {
+
+    .btnfixremove {
+        margin-top: 15px !important;
+
+    }
+
+    .logintextfix {
+
+        margin-left: -70px !important;
+        width: 270px !important;
+
+    }
+
+
+    .signuptextfix {
+        margin-left: -70px !important;
+        width: 270px !important;
+    }
+
+
+
+    .custom-login {
+
+        margin-left: 0px !important;
+        width: 270px !important;
+
+    }
+
+    .f-pass {
+
+        margin-left: 0px !important;
+        width: 270px !important;
+
+    }
+
+    .facebooktest {
+
+        margin-left: -110px !important;
+        width: 270px !important;
+
+
+    }
+
+    .formfix {
+        margin-left: -70px !important;
+        width: 270px !important;
+
+    }
+
+    .formfixsignup {
+        margin-left: -70px !important;
+        width: 270px !important;
+    }
+
+}
+
+
+
+.page-footer {
+    background-color: #929FBA
+}
