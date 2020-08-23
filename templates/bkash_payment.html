@@ -20,10 +20,10 @@
 
       <div class="row">
 
-        {% for order_item in order.items.all %}
-         <p style="padding:20px;">Dear customer, first you need to send <b style="color:#EF1C79;">৳{{ order_item.get_final_price }}</b> from your bKash account to <b style="color:#EF1C79;">01777424142</b> (personal Bkash account). Complete your payment by submitting the transaction number obtained from there in the form below. </p>
         
-         {% endfor %}
+         <p style="padding:20px;">Dear customer, first you need to send <b style="color:#EF1C79;">৳{{ order.get_total }}</b> from your bKash account to <b style="color:#EF1C79;">01777424142</b> (personal Bkash account). Complete your payment by submitting the transaction number obtained from there in the form below. </p>
+        
+       
         <div class="col-md-12 mb-4">
           
            {% load crispy_forms_tags %} 
