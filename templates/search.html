@@ -26,7 +26,7 @@
       {% for item in items_feature_home %}
       <!--First slide-->
       <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
-        <div class="view" style="background-image: url('{{item.image.url}}'); background-repeat: no-repeat; background-size: cover;">
+        <div class="view" style="background-image: url('/static/img/product.png'); background-repeat: no-repeat; background-size: cover;">
 
           <!-- Mask & flexbox options-->
           <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
@@ -178,7 +178,7 @@
 
               <div class="view overlay">
                 {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top" {% endcomment %}
-                <img src="{{ item.image.url }}" class="card-img-top">
+                <img src="/static/img/product.png" class="card-img-top">
                 <a href="{{ item.get_absolute_url }}">
                   <div class="mask rgba-white-slight"></div>
                 </a>
