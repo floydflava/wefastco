@@ -1,5 +1,5 @@
 # Python light-weight E-commerce Web-App build with Django
-#### Django full functional portfolio + blog web application.
+#### Python light-weight E-commerce Web-App. Specially build for new entrepreneurs. The student version of the app is open source for all.
 
 ![Image of homeage of this repository](https://github.com/nasim-007/nimushop/blob/master/fb-share.png)
 
@@ -8,32 +8,28 @@
 
 # Deploy at heroku
 ```
-It's 100% ready to deploy at heroku container. Just fork the 'add-migrations' branch of this repository 
+It's 100% ready to deploy at heroku container. Just fork the 'master' branch of this repository 
 or make your own. Login your heroku account and make an app.
 In deploy method, select github. connect your repository and start deploy. that's it. 
 ```
 
 # Local Development:
-###### Download or clone the stable branch 'add-migrations'. Goto project root folder.
+###### Download or clone the repository. Goto project root folder.
 
 ```
-C:\>git clone https://github.com/nasim-007/portfolio.git
+user@123:User$ git clone https://github.com/nasim-007/nimushop.git
 
-C:\>cd portfolio
+user@123:User$cd nimushop
 
-C:\portfolio>cd djnago
+user@123:User/nimushop$virtualenv -p python3 env
 
-C:\portfolio\django>scripts\activate.bat
+user@123:User/nimushop$source env/bin/activate
 
-(django)C:\portfolio\django>cd ..
+(env)user@123:User/nimushop$pip install -r requirements.txt
 
-(django)C:\portfolio>pip freeze > requirements.txt
+(env)user@123:User/nimushop$python manage.py migrate
 
-(django)C:\portfolio>pip install -r requirements.txt
-
-(django)C:\portfolio>python manage.py migrate
-
-(django)C:\portfolio>python manage.py runserver
+(env)user@123:User/nimushop$python manage.py runserver
 ```
 
 ```
@@ -42,7 +38,7 @@ C:\portfolio\django>scripts\activate.bat
 
 ###### create a super user using,
 ```
-(django)C:\portfolio>python manage.py createsuperuser
+(env)user@123:User/nimushop$python manage.py createsuperuser
 ```
 
 
