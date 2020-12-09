@@ -1,7 +1,7 @@
 # Python light-weight E-commerce Web-App build with Django
 #### Python light-weight E-commerce Web-App. Specially build for new entrepreneurs. The student version of the app is open source for all.
 
-![Image of homeage of this repository](https://github.com/nasim-007/nimushop/blob/master/fb-share.png)
+![Image of homeage of this repository](https://github.com/nasim-007/nimushop/blob/master/nimushop.png)
 
 #### Prerequisite:
 ###### 1: python 3.8
