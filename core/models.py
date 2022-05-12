@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db.models.signals import post_save
 from django.conf import settings
 from django.db import models
@@ -58,11 +59,26 @@ class Item(models.Model):
     created_on = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     slug = models.SlugField()
     description = models.TextField()
-    image = models.ImageField(default='/static/img/product.png')
+    image = models.ImageField()
     tags = TaggableManager()
     
     class Meta:
         ordering = ['-created_on']
+
+    def __unicode__(self):
+        return "{0}".format(self.image)
+
+    def save(self):
+        if not self.image:
+            return            
+
+        
+        super(Item, self).save()
+        # image = Image.open(self.image)
+        # (width, height) = image.size     
+        # size = ( 400, 400)
+        # image = image.resize(size, Image.ANTIALIAS)
+        # image.save(self.image,"png",quality=90,)
     
     def __str__(self):
         return self.title
@@ -85,7 +101,20 @@ class Item(models.Model):
 
 class ItemImage(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(default='/static/img/product.png')
+    image = models.ImageField()
+    def save(self):
+        if not self.image:
+            return            
+
+        
+        super(Item, self).save()
+        # image = Image.open(self.image)
+        # (width, height) = image.size     
+        # size = ( 400, 400)
+        # image = image.resize(size, Image.ANTIALIAS)
+        # image.save(self.image,"png",quality=90,)
+    
+   
 
 
 

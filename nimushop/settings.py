@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 import django_heroku
 import dj_database_url
+import cloudinary
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +29,7 @@ SECRET_KEY = 's%o-cymq=tk9%-(t7nwqjivqz!pc3e-4ksw1!hkaa%!bz%p4a5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nimushop.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['paukau.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -92,17 +94,21 @@ WSGI_APPLICATION = 'nimushop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
+# DATABASES = {
     
-    'default': {
+#     'default': {
         
-        'ENGINE': 'django.db.backends.sqlite3',
+#         'ENGINE': 'django.db.backends.sqlite3',
         
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
    
-   }
+#    }
 
-}
+# }
+DATABASES = {
+    'default': dj_database_url.config()
+        
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -182,6 +188,12 @@ SOCIALACCOUNT_PROVIDERS = \
         'VERIFIED_EMAIL': False,
         'VERSION': 'v2.4'}}
 
+
+cloudinary.config( 
+  cloud_name = "heaffbctn", 
+  api_key = "511192353119356", 
+  api_secret = "yrkrMDXEkGyvRG670e1s5Fdnv2U" 
+)
 
 #facebook
 SOCIAL_AUTH_FACEBOOK_KEY = '350493566115095'  # App ID
