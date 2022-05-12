@@ -1,4 +1,5 @@
 from distutils.command.upload import upload
+from email.mime import image
 from operator import itemgetter
 from typing import ItemsView
 from django.db.models.signals import post_save
@@ -72,17 +73,9 @@ class Item(models.Model):
     def __unicode__(self):
         return "{0}".format(self.image)
 
-    def save(self):
-        if not self.image:
-            return            
-
-        
+    
        
-        image = image.open(self.image)
-        # (width, height) = image.size     
-        # size = ( 400, 400)
-        # image = image.resize(size, Image.ANTIALIAS)
-        # image.save(self.image,"png",quality=90,)
+       
     
     def __str__(self):
         return self.title
