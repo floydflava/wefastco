@@ -64,10 +64,10 @@ class Item(models.Model):
     image = models.ImageField()
     tags = TaggableManager()
     
-    g = ItemsView(title=title)   
-    g.save()
-    g.tags.add( "mytag" )
-    g.save()
+    
+    tags.save()
+    tags.tags.add( "mytag" )
+    tags.save()
     
     class Meta:
         ordering = ['-created_on']
