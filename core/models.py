@@ -78,7 +78,7 @@ class Item(models.Model):
 
         
        
-        # image = Image.open(self.image)
+        image = image.open(self.image)
         # (width, height) = image.size     
         # size = ( 400, 400)
         # image = image.resize(size, Image.ANTIALIAS)
@@ -111,7 +111,7 @@ class ItemImage(models.Model):
             return            
 
         
-        # super(Item, self).save()
+        super(ItemImage, self).save()
         # image = Image.open(self.image)
         # (width, height) = image.size     
         # size = ( 400, 400)
