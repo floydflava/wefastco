@@ -63,7 +63,7 @@ class Item(models.Model):
     slug = models.SlugField()
     description = models.TextField()
     image = models.ImageField()
-    # tags = TaggableManager()
+    tags = TaggableManager()
     
     
     
