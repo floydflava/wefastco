@@ -70,8 +70,12 @@ class Item(models.Model):
     class Meta:
         ordering = ['-created_on']
 
-    def __unicode__(self):
-        return "{0}".format(self.image)
+    def save(self):
+        if not self.image:
+            return            
+
+        
+        super(ItemImage, self).save()
 
        
     
