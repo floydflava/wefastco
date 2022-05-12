@@ -111,7 +111,7 @@ class ItemImage(models.Model):
             return            
 
         
-        super(Item, self).save()
+        # super(Item, self).save()
         # image = Image.open(self.image)
         # (width, height) = image.size     
         # size = ( 400, 400)
