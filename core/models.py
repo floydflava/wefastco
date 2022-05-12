@@ -75,7 +75,7 @@ class Item(models.Model):
             return            
 
         
-        super(ItemImage, self).save()
+        super(image, self).save()
 
        
     
