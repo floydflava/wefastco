@@ -73,6 +73,7 @@ class Item(models.Model):
     def __unicode__(self):
         return "{0}".format(self.image)
 
+       
     
        
        
