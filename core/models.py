@@ -1,4 +1,5 @@
 from distutils.command.upload import upload
+from operator import itemgetter
 from django.db.models.signals import post_save
 from django.conf import settings
 from django.db import models
@@ -61,6 +62,11 @@ class Item(models.Model):
     description = models.TextField()
     image = models.ImageField()
     tags = TaggableManager()
+    
+    g = itemgetter(title=title)   
+    g.save()
+    g.tags.add( "mytag" )
+    g.save()
     
     class Meta:
         ordering = ['-created_on']
