@@ -70,18 +70,12 @@ class Item(models.Model):
     class Meta:
         ordering = ['-created_on']
 
+    
+
     def save(self):
         if not self.image:
             return            
 
-        
-      
-
-       
-    
-       
-       
-    
     def __str__(self):
         return self.title
 
@@ -104,6 +98,10 @@ class Item(models.Model):
 class ItemImage(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField()
+
+    def __unicode__(self):
+        return "{0}".format(self.image)
+
     def save(self):
         if not self.image:
             return            
