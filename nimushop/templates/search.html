@@ -1,14 +1,6 @@
 {% extends "base.html" %}
 
-<style> 
-       
-   
-
-</style> 
-
-
 {% block content %}
-  
   <!--Carousel Wrapper-->
   <div id="carousel-example-1z" style="margin-top:-32px" class="carousel slide carousel-fade pt-4 feature-item" data-ride="carousel">
 
@@ -34,7 +26,7 @@
       {% for item in items_feature_home %}
       <!--First slide-->
       <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
-        <div class="view" style="background-image: url(' item.image.url '); background-repeat: no-repeat; background-size: cover;">
+        <div class="view" style="background-image: url('/static/img/product.png'); background-repeat: no-repeat; background-size: cover;">
 
           <!-- Mask & flexbox options-->
           <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
@@ -59,7 +51,7 @@
                   </strong>
               </p>
 
-              <a href="{{ item.image.url }}" class="btn btn-outline-white btn-lg">Buy Now
+              <a href="{{ item.get_absolute_url }}" class="btn btn-outline-white btn-lg">Buy Now
                 
                 
               </a>
@@ -101,14 +93,15 @@
   <main>
     <div class="container">
 
+ 
       <!--/.Navbar-->
 
       <!--Section: Products v.3-->
-      <section class="text-center mb-8">
+      <section class="text-center mb-4">
 
         <div class="row wow fadeIn">
 
-          {% for item in page_obj %}
+          {% for item in queryset %}
           <div class="col-lg-3 col-md-6 mb-4">
 
             <div class="card">
@@ -168,38 +161,8 @@
       </section>
       <!--Section: Products v.3-->
 
-      <!--Pagination-->
-
       
-      <nav class="d-flex justify-content-center wow fadeIn">
-        <ul class="pagination pg-blue">
-
-          {% if page_obj.has_previous %}
-          <li class="page-item">
-            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-              <span class="sr-only">Previous</span>
-            </a>
-          </li>
-          {% endif %}
-
-          <li class="page-item active">
-            <a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-
-          {% if page_obj.has_next %}
-          <li class="page-item">
-            <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              <span class="sr-only">Next</span>
-            </a>
-          </li>
-          {% endif %}
-        </ul>
-      </nav>
-     
+      
 
     </div>
   </main>
