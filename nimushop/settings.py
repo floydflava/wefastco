@@ -195,6 +195,8 @@ cloudinary.config(
   api_secret = "yrkrMDXEkGyvRG670e1s5Fdnv2U" 
 )
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 #facebook
 SOCIAL_AUTH_FACEBOOK_KEY = '350493566115095'  # App ID
 SOCIAL_AUTH_FACEBOOK_SECRET ='253ad3258eeaf36b24679f00e6750a1d' #app key
