@@ -63,24 +63,13 @@ class Item(models.Model):
     slug = models.SlugField()
     description = models.TextField()
     image = models.ImageField()
-    # tags = TaggableManager()
+    tags = TaggableManager()
     
     
     
     class Meta:
         ordering = ['-created_on']
 
-    def save(self):
-        if not self.image:
-            return            
-
-        
-      
-
-       
-    
-       
-       
     
     def __str__(self):
         return self.title
@@ -104,12 +93,7 @@ class Item(models.Model):
 class ItemImage(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField()
-    def save(self):
-        if not self.image:
-            return            
-
-        
-        super(ItemImage, self).save()
+   
         # image = Image.open(self.image)
         # (width, height) = image.size     
         # size = ( 400, 400)
