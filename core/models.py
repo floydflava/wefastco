@@ -93,7 +93,15 @@ class Item(models.Model):
 class ItemImage(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField()
-   
+    def __unicode__(self):
+        return "{0}".format(self.image)
+
+    def save(self):
+        if not self.image:
+            return            
+
+        
+        super(Item, self).save()
         # image = Image.open(self.image)
         # (width, height) = image.size     
         # size = ( 400, 400)
