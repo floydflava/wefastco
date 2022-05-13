@@ -9,8 +9,8 @@ from django.db.models import Sum
 from django.shortcuts import reverse
 from django_countries.fields import CountryField
 from taggit.managers import TaggableManager
-from south.modelsinspector import add_ignored_fields
-from django.contrib.contenttypes.fields import GenericForeignKey
+# from south.modelsinspector import add_ignored_fields
+# from django.contrib.contenttypes.fields import GenericForeignKey
 
 CATEGORY_CHOICES = (
     ('S', 'Samsung'),
@@ -67,7 +67,7 @@ class Item(models.Model):
     image = models.ImageField()
     tags = TaggableManager()
     
-    add_ignored_fields(["^taggit\.managers"])
+    # add_ignored_fields(["^taggit\.managers"])
 
     
     class Meta:
