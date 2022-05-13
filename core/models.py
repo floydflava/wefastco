@@ -63,7 +63,6 @@ class Item(models.Model):
     slug = models.SlugField()
     description = models.TextField()
     image = models.ImageField()
-    tags = TaggableManager()
     def __unicode__(self):
         return "{0}".format(self.image)
 
@@ -73,6 +72,8 @@ class Item(models.Model):
 
         
         super(Item, self).save()
+    tags = TaggableManager()
+    
     
     
     class Meta:
@@ -98,18 +99,18 @@ class Item(models.Model):
         })
 
 
-# class ItemImage(models.Model):
-#     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='images')
-#     image = models.ImageField()
-#     def __unicode__(self):
-#         return "{0}".format(self.image)
+class ItemImage(models.Model):
+    item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField()
+    def __unicode__(self):
+        return "{0}".format(self.image)
 
-#     def save(self):
-#         if not self.image:
-#             return            
+    def save(self):
+        if not self.image:
+            return            
 
         
-#         super(ItemImage, self).save()
+        super(ItemImage, self).save()
         # image = Image.open(self.image)
         # (width, height) = image.size     
         # size = ( 400, 400)
