@@ -6,7 +6,7 @@ import dj_database_url
 DEBUG = True  
 
 
-ALLOWED_HOSTS = ['ip-address','0.0.0.0', 'paukau.herokuapp.com']
+ALLOWED_HOSTS = ['paukau.herokuapp.com']
 # ALLOWED_HOSTS = ['*']
 
 AUTH_PASSWORD_VALIDATORS = [
