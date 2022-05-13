@@ -103,8 +103,8 @@ class ItemImage(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField()
 
-    def __unicode__(self):
-        return "{0}".format(self.image)
+    # def __unicode__(self):
+    #     return "{0}".format(self.image)
 
     def save(self):
         if not self.image:
