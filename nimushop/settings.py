@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     
     'crispy_forms',
     'django_countries',
+    'cloudinary_storage',
+    'cloudinary',
      
     'taggit',
     'core'
