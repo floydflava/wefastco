@@ -9,8 +9,6 @@ from django.db.models import Sum
 from django.shortcuts import reverse
 from django_countries.fields import CountryField
 from taggit.managers import TaggableManager
-# from south.modelsinspector import add_ignored_fields
-# from django.contrib.contenttypes.fields import GenericForeignKey
 
 CATEGORY_CHOICES = (
     ('S', 'Samsung'),
@@ -65,21 +63,25 @@ class Item(models.Model):
     slug = models.SlugField()
     description = models.TextField()
     image = models.ImageField()
-    # 
-    # tags = TaggableManager()
+    tags = TaggableManager()
     
-    # add_ignored_fields(["^taggit\.managers"])
-
+    
     
     class Meta:
         ordering = ['-created_on']
-
-    
 
     def save(self):
         if not self.image:
             return            
 
+        
+      
+
+       
+    
+       
+       
+    
     def __str__(self):
         return self.title
 
@@ -102,10 +104,6 @@ class Item(models.Model):
 class ItemImage(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='images')
     image = models.ImageField()
-
-    # def __unicode__(self):
-    #     return "{0}".format(self.image)
-
     def save(self):
         if not self.image:
             return            
