@@ -233,14 +233,14 @@ def product_details(request, slug):
     item = Item.objects.get(slug=slug)
     image_list = item.images.all()
     
-    # similar_item = item.tags.similar_objects()[:4]
+    similar_item = item.tags.similar_objects()[:4]
     
     
     context = {
 
        'item': item,
        'image_list': image_list,
-    #    'similar_item': similar_item
+       'similar_item': similar_item
 
     
     }
