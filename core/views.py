@@ -210,7 +210,7 @@ def home(request):
     
     
     
-    paginator = Paginator(items, 8)
+    paginator = Paginator(items, 24)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
