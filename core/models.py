@@ -11,9 +11,9 @@ from django_countries.fields import CountryField
 from taggit.managers import TaggableManager
 
 CATEGORY_CHOICES = (
-    ('S', 'Samsung'),
-    ('X', 'Xiaomi'),
-    ('N', 'Nokia'),
+    ('L', 'Laptops'),
+    ('P', 'Phones'),
+    ('W', 'Watches'),
     ('A', 'Apple'),
     ('R', 'Realme'),
     ('Op', 'Oppo'),
