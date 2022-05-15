@@ -189,13 +189,6 @@ SOCIALACCOUNT_PROVIDERS = \
         'VERSION': 'v2.4'}}
 
 
-cloudinary.config( 
-  cloud_name = "heaffbctn", 
-  api_key = "511192353119356", 
-  api_secret = "yrkrMDXEkGyvRG670e1s5Fdnv2U" 
-)
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 #facebook
 SOCIAL_AUTH_FACEBOOK_KEY = '350493566115095'  # App ID

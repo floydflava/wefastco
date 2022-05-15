@@ -16,6 +16,14 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'}
 ]
 
+cloudinary.config( 
+  cloud_name = "heaffbctn", 
+  api_key = "511192353119356", 
+  api_secret = "yrkrMDXEkGyvRG670e1s5Fdnv2U" 
+)
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 
 DATABASES = {

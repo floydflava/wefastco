@@ -63,15 +63,7 @@ class Item(models.Model):
     slug = models.SlugField()
     description = models.TextField()
     image = models.ImageField()
-    def __unicode__(self):
-        return "{0}".format(self.image)
-
-    def save(self):
-        if not self.image:
-            return            
-
-        
-        super(Item, self).save()
+    
     tags = TaggableManager()
     
     
