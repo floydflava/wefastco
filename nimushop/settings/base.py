@@ -166,36 +166,34 @@ LOGIN_REDIRECT_URL = '/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
-SOCIALACCOUNT_PROVIDERS = {
-    'facebook':
-     
-        {
-         'METHOD': 'oauth2',
-         'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
-         'SCOPE': ['email', 'public_profile'],
-         'AUTH_PARAMS': {'auth_type': 'authenticate'},
-         'INIT_PARAMS': {'cookie': True},
-         'FIELDS': [
-             'id',
-             'first_name',
-             'last_name',
-             'name',
-             'name_format',
-             'picture',
-             'short_name'
-         ],
-         'EXCHANGE_TOKEN': True,
-         'LOCALE_FUNC': lambda request: 'ru_RU',
-         'VERIFIED_EMAIL': False,
-         'VERSION': 'v7.0',
-         # you should fill in 'APP' only if you don't create a Facebook instance at /admin/socialaccount/socialapp/
-         'APP': {
-             'client_id': '834810577213058',  # !!! THIS App ID
-             'secret': '8499919a6c473d1192c50603203af535',  # !!! THIS App Secret
-             'key': ''
-                }
-         }
-}
+SOCIALACCOUNT_PROVIDERS = \
+    {'facebook':
+       {'METHOD': 'oauth2',
+        'SCOPE': ['email','public_profile', 'user_friends'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'FIELDS': [
+            'id',
+            'email',
+            'name',
+            'first_name',
+            'last_name',
+            'verified',
+            'locale',
+            'timezone',
+            'link',
+            'gender',
+            'updated_time'],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': lambda request: 'kr_KR',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v2.4'}}
+
+
+
+#facebook
+SOCIAL_AUTH_FACEBOOK_KEY = '834810577213058'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET ='8499919a6c473d1192c50603203af535' #app key
+
 ACCOUNT_EMAIL_REQUIRED=True
 ACCOUNT_USERNAME_REQURIED=True
 
