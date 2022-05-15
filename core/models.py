@@ -14,7 +14,7 @@ CATEGORY_CHOICES = (
     ('L', 'Laptops'),
     ('P', 'Phones'),
     ('W', 'Watches'),
-    ('A', 'Apple'),
+    ('A', 'Accessories'),
     ('R', 'Realme'),
     ('Op', 'Oppo'),
     ('On', 'OnePlus')
