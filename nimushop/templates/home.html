@@ -34,7 +34,7 @@
       {% for item in items_feature_home %}
       <!--First slide-->
       <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
-        <div class="view" style="background-image: url(' item.image.url '); background-repeat: no-repeat; background-size: cover;">
+        <div class="view" style="background-image: url(' /static/img/banner1.jpeg  '); background-repeat: no-repeat; background-size: cover;">
 
           <!-- Mask & flexbox options-->
           <div class="mask rgba-black-strong d-flex justify-content-center align-items-center">
@@ -59,10 +59,10 @@
                   </strong>
               </p>
 
-              <a href="{{ item.image.url }}" class="btn btn-outline-white btn-lg">Buy Now
+              <img src="{{ item.image.url }}" class="btn btn-outline-white btn-lg">Buy Now
                 
                 
-              </a>
+            
             </div>
             
             <!-- Content -->
@@ -147,13 +147,13 @@
                 </h5>
 
                 <h4 class="font-weight-bold blue-text">
-                  <strong>R
+                  R
                   {% if item.discount_price %}
                   {{ item.discount_price }} 
                   {% else %}
                   {{ item.price }}
                   {% endif %}
-                  </strong>
+                  
                 </h4>
 
               </div>
