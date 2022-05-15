@@ -48,11 +48,11 @@
             <p class="lead">
               {% if item.discount_price %}
               <span class="mr-1">
-                <del>৳{{ item.price }}</del>
+                <del>R{{ item.price }}</del>
               </span>
-              <span>৳{{ item.discount_price }}</span>
+              <span>R{{ item.discount_price }}</span>
               {% else %}
-              <span>৳{{ item.price }}</span>
+              <span>R{{ item.price }}</span>
               {% endif %}
             </p>
 
@@ -197,7 +197,7 @@
                 </h5>
 
                 <h4 class="font-weight-bold blue-text">
-                  <strong>৳
+                  <strong>R
                   {% if item.discount_price %}
                   {{ item.discount_price }}
                   {% else %}
