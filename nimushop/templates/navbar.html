@@ -1,6 +1,6 @@
 {% load cart_template_tags %}
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+<nav class="navbar fixed-top navbar-expand-lg" style="background-color: #e3f2fd;" scrolling-navbar">
     <div class="container">
 
       <!-- Brand -->
@@ -40,16 +40,16 @@
           </li> {% endcomment %}
 
           <li class="nav-item active">
-            <a class="nav-link" href="/">All Brands
+            <a class="nav-link" href="/">Brands
               <span class="sr-only">(current)</span>
             </a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="/samsung">Samsung</a>
+            <a class="nav-link" href="/samsung">Accessories</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/xiaomi">Xiaomi</a>
+            <a class="nav-link" href="/xiaomi">Phones</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/nokia">Nokia</a>
@@ -70,7 +70,12 @@
           <li class="nav-item">
             <a class="nav-link" href="/oneplus">OnePlus</a>
           </li> -->
-
+          <form class="input-group">
+            <div class="form-outline">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="q">
+            </div>
+            
+          </form>
           
           
 
@@ -78,12 +83,7 @@
 
         </ul>
 
-        <form class="input-group">
-          <div class="form-outline">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="q">
-          </div>
-          
-        </form>
+       
         <!-- Right -->
         <ul class="navbar-nav nav-flex-icons">
           {% if request.user.is_authenticated %}
