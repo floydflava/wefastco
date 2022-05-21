@@ -63,6 +63,8 @@ class Migration(migrations.Migration):
                 ('label', models.CharField(blank=True, choices=[('P', 'primary'), ('S', 'secondary'), ('D', 'danger')], max_length=1, null=True)),
                 ('created_on', models.DateTimeField(auto_now_add=True, null=True)),
                 ('slug', models.SlugField()),
+                ('stock', models.IntegerField(default=0,blank=True,null=True)),
+
                 ('description', models.TextField()),
                 ('image', models.ImageField(upload_to='')),
                 ('tags', taggit.managers.TaggableManager(help_text='A comma-separated list of tags.', through='taggit.TaggedItem', to='taggit.Tag', verbose_name='Tags')),

@@ -53,13 +53,31 @@
               <p>
                 <strong>Buy products with best prices</strong>
               </p>
-
+              <div class="card" style="width: 14.0rem;height: 6rem;">
+                    
+                <img
+                
+                  src="{{ item.image.url }}"
+                  class="card-img-top"
+                  alt="..."
+                  
+                />
+                
+              </div>
+              
               <p class="mb-4 d-none d-md-block">
-                <strong> {{ item.get_category_display }}
-                  </strong>
-              </p>
 
-              <a href="{{ item.get_absolute_url }}" class="btn btn-outline-white btn-lg">Buy Now
+                
+                <strong> 
+                  
+                  
+                  {{ item.get_category_display }}
+                  </strong>
+                  
+              </p>
+              
+
+              <a href="{{ item.get_absolute_url }}" class="btn btn-outline-black btn-lg">Buy Now
                 
               </a>
             
@@ -156,6 +174,13 @@
                   {{ item.price }}
                   {% endif %}
                   
+                  <p class="availability">
+                    {% if item.stock > 0 %}
+                      <span class="available">In Stock</span>
+                    {% else %}
+                      <span class="not_available">Out Of Stock</span>
+                    {% endif %}
+                  </p>
                 </h6>
 
               </div>

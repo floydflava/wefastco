@@ -61,6 +61,8 @@ class Item(models.Model):
     label = models.CharField(choices=LABEL_CHOICES, max_length=1, blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     slug = models.SlugField()
+    stock = models.IntegerField(null=True,blank=True,default=0)
+    manufactured_on = models.DateTimeField()
     description = models.TextField()
     image = models.ImageField()
     
