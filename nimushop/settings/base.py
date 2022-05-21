@@ -210,8 +210,8 @@ STRIPE_LIVE_SECRET_KEY= 'your-live-secret-key'
 STRIPE_TEST_PUBLIC_KEY= 'your-test-public-key'
 STRIPE_TEST_SECRET_KEY= 'your-test-secret-key'
 
-STRIPE_PUBLIC_KEY = config('STRIPE_TEST_PUBLIC_KEY')
-STRIPE_SECRET_KEY = config('STRIPE_TEST_SECRET_KEY')
+STRIPE_PUBLIC_KEY = "sk_test_51Jhe9KI0vyNNQbJ56RMDp4moQoQsEx3KUwaNQ5J3WQOn31rvyBaDvAh2bApMS4EmiLAJhj3lzoxMkQW4HHB9afzN00iA7dw43u"
+STRIPE_SECRET_KEY = "sk_test_51Jhe9KI0vyNNQbJ56RMDp4moQoQsEx3KUwaNQ5J3WQOn31rvyBaDvAh2bApMS4EmiLAJhj3lzoxMkQW4HHB9afzN00iA7dw43u"
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
