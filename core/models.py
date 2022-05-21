@@ -62,7 +62,7 @@ class Item(models.Model):
     created_on = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     slug = models.SlugField()
     stock = models.IntegerField(null=True,blank=True,default=0)
-    manufactured_on = models.DateTimeField()
+    manufactured_on = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     description = models.TextField()
     image = models.ImageField()
     
