@@ -135,7 +135,7 @@
               <div class="view overlay">
                 <img src="{{ item.image.url }}" class="card-img-top">
                 <a href="{{ item.get_absolute_url }}">
-                  <div class="mask rgba-white-slight"></div>
+                  <!-- <div class="mask rgba-white-slight"></div> -->
 
                 </a>
               </div>
@@ -165,15 +165,17 @@
                     </a>
                  
                 </h6>
+                <p class="price">
 
                 <h6 class="font-weight-bold blue-text">
                   R
                   {% if item.discount_price %}
                   {{ item.discount_price }} 
                   {% else %}
+                  
                   {{ item.price }}
                   {% endif %}
-                  
+                 
                   <p class="availability">
                     {% if item.stock > 0 %}
                       <span class="available">In Stock</span>
