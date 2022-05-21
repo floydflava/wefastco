@@ -19,10 +19,10 @@ app_name = 'core'
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('samsung/', views.samsung, name='samsung'),
-    path('xiaomi/', views.xiaomi, name='xiaomi'),
-    path('nokia/', views.nokia, name='nokia'),
-    path('apple/', views.apple, name='apple'),
+    path('accessories/', views.accessories, name='accessories'),
+    path('phones/', views.phones, name='phones'),
+    path('watches/', views.watches, name='watches'),
+    path('laptops/', views.laptops, name='laptops'),
     path('realme/', views.realme, name='realme'),
     path('oppo/', views.oppo, name='oppo'),
     path('oneplus/', views.oneplus, name='oneplus'),

@@ -14,6 +14,7 @@ import os
 import django_heroku
 import dj_database_url
 import cloudinary
+from decouple import config
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -150,7 +151,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static_in_env/img')
 
 # Auth
 
@@ -208,6 +209,9 @@ STRIPE_LIVE_PUBLIC_KEY= 'your-live-public-key'
 STRIPE_LIVE_SECRET_KEY= 'your-live-secret-key'
 STRIPE_TEST_PUBLIC_KEY= 'your-test-public-key'
 STRIPE_TEST_SECRET_KEY= 'your-test-secret-key'
+
+STRIPE_PUBLIC_KEY = config('STRIPE_LIVE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = config('STRIPE_LIVE_SECRET_KEY')
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

@@ -29,9 +29,9 @@ def create_ref_code():
     return ''.join(random.choices(string.ascii_lowercase + string.digits, k=20))
 
 
-def samsung(request):
+def accessories(request):
     
-    items = Item.objects.filter(category='S').order_by('-created_on')
+    items = Item.objects.filter(category='A').order_by('-created_on')
     items_feature_home = Item.objects.all().order_by('-created_on')[:5]
 
     paginator = Paginator(items, 8)
@@ -48,11 +48,11 @@ def samsung(request):
     
     }
     
-    return render(request, "samsung.html", context)
+    return render(request, "accessories.html", context)
 
-def xiaomi(request):
+def phones(request):
     
-    items = Item.objects.filter(category='X').order_by('-created_on')
+    items = Item.objects.filter(category='P').order_by('-created_on')
     items_feature_home = Item.objects.all().order_by('-created_on')[:5]
     
     paginator = Paginator(items, 8)
@@ -68,11 +68,11 @@ def xiaomi(request):
     
     }
     
-    return render(request, "xiaomi.html", context)
+    return render(request, "phones.html", context)
 
-def nokia(request):
+def watches(request):
     
-    items = Item.objects.filter(category='N').order_by('-created_on')
+    items = Item.objects.filter(category='W').order_by('-created_on')
     items_feature_home = Item.objects.all().order_by('-created_on')[:5]
     
     paginator = Paginator(items, 8)
@@ -88,11 +88,11 @@ def nokia(request):
     
     }
     
-    return render(request, "nokia.html", context)
+    return render(request, "watches.html", context)
 
-def apple(request):
+def laptops(request):
     
-    items = Item.objects.filter(category='A').order_by('-created_on')
+    items = Item.objects.filter(category='L').order_by('-created_on')
     items_feature_home = Item.objects.all().order_by('-created_on')[:5]
     
     paginator = Paginator(items, 8)
@@ -108,7 +108,7 @@ def apple(request):
     
     }
     
-    return render(request, "apple.html", context)
+    return render(request, "laptops.html", context)
 
 def realme(request):
     

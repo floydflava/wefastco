@@ -7,7 +7,10 @@ from django_countries.widgets import CountrySelectWidget
 PAYMENT_CHOICES = (
    
     ('C', 'Cash on delivery (Free Shipping)'),
-    ('B', 'Bkash (Free Shipping)')
+    ('B', 'Bkash (Free Shipping)'),
+    ('S', 'stripe'),
+    ('P','paypal')
+
 )
 
 
