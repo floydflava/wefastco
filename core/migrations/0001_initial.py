@@ -25,6 +25,7 @@ class Migration(migrations.Migration):
                 ('apartment_address', models.CharField(max_length=100)),
                 ('country', django_countries.fields.CountryField(max_length=2)),
                 ('zip', models.CharField(max_length=100)),
+                ('phone', models.CharField(max_length=10)),
                 ('address_type', models.CharField(choices=[('B', 'Billing'), ('S', 'Shipping')], max_length=1)),
                 ('default', models.BooleanField(default=False)),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),

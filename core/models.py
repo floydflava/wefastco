@@ -105,13 +105,7 @@ class ItemImage(models.Model):
 
         
         super(ItemImage, self).save()
-        # image = Image.open(self.image)
-        # (width, height) = image.size     
-        # size = ( 400, 400)
-        # image = image.resize(size, Image.ANTIALIAS)
-        # image.save(self.image,"png",quality=90,)
-    
-   
+       
 
 
 
@@ -196,6 +190,8 @@ class Address(models.Model):
     apartment_address = models.CharField(max_length=100)
     country = CountryField(multiple=False)
     zip = models.CharField(max_length=100)
+    phone = models.CharField(max_length=10,default=True)
+
     address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)
     default = models.BooleanField(default=False)
 

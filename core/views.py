@@ -1,6 +1,8 @@
 import random
 import string
 
+from requests_toolbelt import user_agent
+
 import stripe
 from django.conf import settings
 from django.contrib import messages
@@ -110,25 +112,7 @@ def laptops(request):
     
     return render(request, "laptops.html", context)
 
-def realme(request):
-    
-    items = Item.objects.filter(category='R').order_by('-created_on')
-    items_feature_home = Item.objects.all().order_by('-created_on')[:5]
-    
-    paginator = Paginator(items, 8)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    
-    
-    context = {
 
-       'items': items,
-       'page_obj': page_obj, 
-       'items_feature_home': items_feature_home 
-
-    }
-    
-    return render(request, "realme.html", context)
 
 def oppo(request):
     
@@ -361,14 +345,17 @@ class CheckoutView(View):
                     shipping_country = form.cleaned_data.get(
                         'shipping_country')
                     shipping_zip = form.cleaned_data.get('shipping_zip')
+                    phone_number = form.cleaned_data.get('phone_number')
 
-                    if is_valid_form([shipping_address1, shipping_country, shipping_zip]):
+
+                    if is_valid_form([shipping_address1, shipping_country, shipping_zip,phone_number]):
                         shipping_address = Address(
                             user=self.request.user,
                             street_address=shipping_address1,
                             apartment_address=shipping_address2,
                             country=shipping_country,
                             zip=shipping_zip,
+                            phone=phone_number,
                             address_type='S'
                         )
                         shipping_address.save()
@@ -424,14 +411,18 @@ class CheckoutView(View):
                     billing_country = form.cleaned_data.get(
                         'billing_country')
                     billing_zip = form.cleaned_data.get('billing_zip')
+                    phone_number = form.cleaned_data.get('phone_number')
 
-                    if is_valid_form([billing_address1, billing_country, billing_zip]):
+
+
+                    if is_valid_form([billing_address1, billing_country, billing_zip,phone_number]):
                         billing_address = Address(
                             user=self.request.user,
                             street_address=billing_address1,
                             apartment_address=billing_address2,
                             country=billing_country,
                             zip=billing_zip,
+                            phone=phone_number,
                             address_type='B'
                         )
                         billing_address.save()
@@ -458,7 +449,7 @@ class CheckoutView(View):
                     return redirect('core:payment', payment_option='paypal')
                 
                 elif payment_option == 'C':
-                    return redirect('core:order-success')
+                    return redirect('core:confirmed')
 
                 elif payment_option == 'B':
                     return redirect('core:bkash-payment')
@@ -534,14 +525,14 @@ class PaymentView(View):
                     # charge the customer because we cannot charge the token more than once
                     charge = stripe.Charge.create(
                         amount=amount,  # cents
-                        currency="usd",
+                        currency="rands",
                         customer=userprofile.stripe_customer_id
                     )
                 else:
                     # charge once off on the token
                     charge = stripe.Charge.create(
                         amount=amount,  # cents
-                        currency="usd",
+                        currency="rands",
                         source=token
                     )
 
@@ -565,7 +556,7 @@ class PaymentView(View):
                 order.save()
 
                 messages.success(self.request, "Your order was successful!")
-                return redirect("/")
+                return redirect("core:confirmed")
 
             except stripe.error.CardError as e:
                 body = e.json_body
@@ -633,6 +624,7 @@ class OrderSummaryView(LoginRequiredMixin, View):
             return redirect("/")
 
 
+
 class BkashPaymentView(LoginRequiredMixin, View):
     def get(self, *args, **kwargs):
         order = Order.objects.get(user=self.request.user, ordered=False)
@@ -689,7 +681,7 @@ class BkashPaymentView(LoginRequiredMixin, View):
                 order.save()
 
                 messages.success(self.request, "Your order was successful!")
-                return redirect("/")
+                return redirect("core:confirmed")
 
             except ObjectDoesNotExist:
                 messages.warning(self.request, "You do not have an active order")
@@ -703,38 +695,19 @@ class BkashPaymentView(LoginRequiredMixin, View):
 
 
 
-class OrderSuccessView(LoginRequiredMixin, View):
-    def get(self, *args, **kwargs):
-        try:
-            order = Order.objects.get(user=self.request.user, ordered=False)
-            
-            userprofile = UserProfile.objects.get(user=self.request.user)
-
-            context = {
-                'object': order
-            }
-            
-            
-            # assign the payment to the order
-
-            order_items = order.items.all()
-            order_items.update(ordered=True)
-            for item in order_items:
-                item.save()
-
-            order.ordered = True
-            
-            order.ref_code = create_ref_code()
-            order.save()
-
-            messages.success(self.request, "Your order was successful!")
-            return redirect("/")
-        
-        except ObjectDoesNotExist:
-            messages.warning(self.request, "You do not have an active order")
-            return redirect("/")
 
 
+def OrderSuccessView(request):
+
+    
+    
+    context = {
+
+       
+    
+    }
+    
+    return render(request, "orders.html", context)
 
 
 @login_required
