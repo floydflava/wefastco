@@ -190,7 +190,7 @@ class Address(models.Model):
     apartment_address = models.CharField(max_length=100)
     country = CountryField(multiple=False)
     zip = models.CharField(max_length=100)
-    phone = models.CharField(max_length=10,default=True)
+    phone = models.CharField(max_length=10,default=False)
 
     address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)
     default = models.BooleanField(default=False)
