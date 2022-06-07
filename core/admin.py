@@ -50,11 +50,12 @@ class AddressAdmin(admin.ModelAdmin):
         'apartment_address',
         'country',
         'zip',
+        'phone',
         'address_type',
         'default'
     ]
     list_filter = ['default', 'address_type', 'country']
-    search_fields = ['user', 'street_address', 'apartment_address', 'zip']
+    search_fields = ['user', 'street_address', 'apartment_address', 'zip','phone']
 
 class BkasPaymentAdmin(admin.ModelAdmin):
     pass
