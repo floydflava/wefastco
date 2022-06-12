@@ -4,7 +4,7 @@ from .views import (
    
     CheckoutView,
     OrderSummaryView,
-    
+    OrderSuccessView,
    
     add_to_cart,
     remove_from_cart,
@@ -13,7 +13,7 @@ from .views import (
     PaymentView,
     AddCouponView,
     BkashPaymentView,
-    OrderSuccessView,
+   
     RequestRefundView
 )
 
@@ -33,7 +33,8 @@ urlpatterns = [
     path('bkash/', views.bkash, name='bkash'),
     
     path('contact/', views.contact, name='contact'),
-    path('orders/', views.OrderSuccessView, name='orders'),
+    path('orders-success/', views.OrderSuccessView, name='orders-success'),
+
 
 
 
@@ -41,6 +42,7 @@ urlpatterns = [
   
     path('bkash-payment/', BkashPaymentView.as_view(), name='bkash-payment'),
     path('order-summary/', OrderSummaryView.as_view(), name='order-summary'),
+
 
     path('product/<slug>/', views.product_details, name='product'),
     path('add-to-cart/<slug>/', add_to_cart, name='add-to-cart'),

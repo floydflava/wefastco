@@ -6,6 +6,17 @@
     <ul class="list-group mb-3 z-depth-1">
     {% for order_item in order.items.all %}
     <li class="list-group-item d-flex justify-content-between lh-condensed">
+        <div class="card" style="width: 3rem;height: 2rem;">
+                    
+            <img
+            
+              src="{{  order_item.item.image.url }}"
+              class="card-img-top"
+              alt="..."
+              
+            />
+            
+          </div>
         <div>
         <h6 class="my-0">{{ order_item.quantity }} x {{ order_item.item.title}}</h6>
         

@@ -1,3 +1,4 @@
+from multiprocessing import context
 import random
 import string
 
@@ -13,7 +14,7 @@ from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from django.views.generic import ListView, DetailView, View
-
+from . import forms,models
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator
@@ -449,7 +450,7 @@ class CheckoutView(View):
                     return redirect('core:payment', payment_option='paypal')
                 
                 elif payment_option == 'C':
-                    return redirect('core:confirmed')
+                    return redirect('core:orders-success')
 
                 elif payment_option == 'B':
                     return redirect('core:bkash-payment')
@@ -549,6 +550,7 @@ class PaymentView(View):
                 order_items.update(ordered=True)
                 for item in order_items:
                     item.save()
+                models.Order.objects.get_or_create(customer=customer,product=item,status='Pending')
 
                 order.ordered = True
                 order.payment = payment
@@ -556,7 +558,7 @@ class PaymentView(View):
                 order.save()
 
                 messages.success(self.request, "Your order was successful!")
-                return redirect("core:confirmed")
+                return redirect("core:orders")
 
             except stripe.error.CardError as e:
                 body = e.json_body
@@ -604,12 +606,6 @@ class PaymentView(View):
 
 
 
-    
-    
-    
-
-
-
 
 class OrderSummaryView(LoginRequiredMixin, View):
     def get(self, *args, **kwargs):
@@ -622,7 +618,16 @@ class OrderSummaryView(LoginRequiredMixin, View):
         except ObjectDoesNotExist:
             messages.warning(self.request, "You do not have an active order")
             return redirect("/")
+def OrderSuccessView(request):
+    orders= Order.objects.all().filter(user=request.user,
+        ordered=False)
+    products = OrderItem.objects.filter(user=request.user,
+        ordered=False)
+    context={ 'orders': orders,'products': products}
+   
+    return render(request, "orders.html",context)
 
+    
 
 
 class BkashPaymentView(LoginRequiredMixin, View):
@@ -681,7 +686,7 @@ class BkashPaymentView(LoginRequiredMixin, View):
                 order.save()
 
                 messages.success(self.request, "Your order was successful!")
-                return redirect("core:confirmed")
+                return redirect("core:orders")
 
             except ObjectDoesNotExist:
                 messages.warning(self.request, "You do not have an active order")
@@ -694,20 +699,6 @@ class BkashPaymentView(LoginRequiredMixin, View):
         return redirect("core:bkash-payment")
 
 
-
-
-
-def OrderSuccessView(request):
-
-    
-    
-    context = {
-
-       
-    
-    }
-    
-    return render(request, "orders.html", context)
 
 
 @login_required
