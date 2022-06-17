@@ -101,10 +101,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="{% url 'account_logout' %}">
-              <i class="fas fa-sign-out-alt"></i>
-              <span class="clearfix d-none d-sm-inline-block"> Logout </span>
-            </a>
+           
+            <form method="post" action="{% url 'account_logout' %}">
+              {% csrf_token %}
+              {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+              {% endif %}
+              <button class='btn btn-info btn-sm' type="submit">signout</button>
+
+            </form>
           </li>
           {% else %}
           <li class="nav-item">

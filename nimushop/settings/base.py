@@ -197,7 +197,7 @@ SOCIALACCOUNT_PROVIDERS = {
                 }
          }
 }
-ACCOUNT_EMAIL_REQUIRED=True
+ACCOUNT_EMAIL_REQUIRED=False
 ACCOUNT_USERNAME_REQURIED=True
 ACCOUNT_FORMS = {
 'signup': 'core.forms.CustomSignupForm',

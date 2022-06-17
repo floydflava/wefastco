@@ -61,6 +61,8 @@ class Item(models.Model):
     label = models.CharField(choices=LABEL_CHOICES, max_length=1, blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     slug = models.SlugField()
+    item_code = models.CharField(max_length=20, blank=True, null=True)
+
     stock = models.IntegerField(null=True,blank=True,default=0)
     # manufactured_on = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     description = models.TextField()
@@ -76,6 +78,10 @@ class Item(models.Model):
     
     def __str__(self):
         return self.title
+
+    def __str__(self):
+        return "{} - {}".format(self.id,self.item_code)
+
 
     def get_absolute_url(self):
         return reverse("core:product", kwargs={
@@ -115,6 +121,8 @@ class OrderItem(models.Model):
     ordered = models.BooleanField(default=False)
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
+    itm_code = models.CharField(max_length=20, blank=True, null=True)
+
 
     def __str__(self):
         return f"{self.quantity} of {self.item.title}"
@@ -132,6 +140,9 @@ class OrderItem(models.Model):
         if self.item.discount_price:
             return self.get_total_discount_item_price()
         return self.get_total_item_price()
+
+    def __str__(self):
+        return "{} - {}".format(self.id,self.itm_code)
 
     
 
@@ -184,6 +195,10 @@ class Order(models.Model):
 
     def __str__(self):
         return self.user.username
+
+    def __str__(self):
+        return "{} - {}".format(self.id,self.ref_code)
+
 
     def get_total(self):
         total = 0
