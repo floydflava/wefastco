@@ -186,7 +186,7 @@ p {
                       </div>
                       <figcaption class="info align-self-center">
 
-                          <p class="title"><strong>Name : </strong>{{product.item.title}} <br> <strong>Description : </strong>{{product.item.description}}</p> <span class="text-muted"><strong>Price :R </strong>{{product.item.price}} </span>
+                          <p class="title"><strong>Name : </strong>{{product.item.title}} <br> <strong>Description : </strong>{{product.item.description | slice:":80"}}</p> <span class="text-muted"><strong>Price :R </strong>{{product.item.price}} </span>
 
                       </figcaption>
 
