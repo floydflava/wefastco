@@ -6,7 +6,7 @@ import dj_database_url
 DEBUG = True  
 
 
-ALLOWED_HOSTS = ['paukau.herokuapp.com',"wefast.co.za"]
+ALLOWED_HOSTS = ['paukau.herokuapp.com',"wefast.co.za","www.wefast.co.za"]
 # ALLOWED_HOSTS = ['*']
 
 AUTH_PASSWORD_VALIDATORS = [
