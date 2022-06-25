@@ -485,7 +485,9 @@ class PaymentView(View):
             order_items = order.items.all()
             order_items.update(ordered=True)
             for item in order_items:
-                item.item_code = create_ref_code()
+                item.ordered = True
+
+                item.itm_code = order.ref_code
                 item.save()
             # models.Order.objects.get_or_create(item=order_items, user=self.request.user,ordered=True,status='Pending')
 
@@ -523,20 +525,20 @@ class OrderSummaryView(LoginRequiredMixin, View):
 def OrderSuccessView(request):
     orders= Order.objects.all().filter(user=request.user,
         ordered=True).order_by('-ordered_date', 'id')
-    products = OrderItem.objects.all().filter(user=request.user,ordered=True).order_by('-ordered', 'id')
+   
 
     product_list = []
 
-    for item in products:
-        if item not in product_list:
-            product_list.append(item)
-    products=product_list
+    for i in orders:
+        products = OrderItem.objects.all().filter(itm_code=i, ordered=True )
+        product_list.append(products)
+   
 
-    context={ 'orders': orders,'products': products}
+    context={ 'orders': orders,'products': product_list}
    
     return render(request, "orders.html",context)
 
-    
+
 
 
 class BkashPaymentView(LoginRequiredMixin, View):

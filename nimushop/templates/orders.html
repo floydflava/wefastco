@@ -168,10 +168,10 @@ p {
 
     <article class="card">
         <div class="card-body">
-            <ul class="row" style="margin-left:20px;margin-top:20px;">
+            <ul class="row" style="margin-left:20px;margin-top:5px;">
                 <li class="col-md-4">
                   <figure class="itemside mb-3">
-                    {%for product in products%}
+                    {%for product in  product_list%}
                     
                     <div class="card" style="width: 3rem;height: 2rem;">
                     
@@ -193,7 +193,7 @@ p {
                   </figure>
                 </li>
                 <li class="col-md-4">
-                    <div class="col"> <strong>Shipment Address:</strong> <br> {{order.shipping_address}}</div>
+                    <div class="col"> <strong>Shipment Address:</strong> <br> {{order.get_total}}</div>
                 </li>
                 <li class="col-md-4">
                     <div class="col"> <strong>Status:</strong> <br> {{order.status}} </div> <br>
