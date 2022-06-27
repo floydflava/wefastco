@@ -144,9 +144,9 @@
               
 
               <div class="card-body text-center">
-                <a href="" class="grey-text">
+                <!-- <a href="" class="grey-text">
                   <h6>{{ item.get_category_display }}</h6>
-                </a>
+                </a> -->
                 <h6>
                   
                     <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}
@@ -168,7 +168,7 @@
                     </a>
                  
                 </h6>
-                <p class="price">
+                
 
                 <h6 class="font-weight-bold blue-text">
                   R
@@ -178,7 +178,7 @@
                   
                   {{ item.price }}
                   {% endif %}
-                 
+                  <a href="" class="grey-text">
                   <p class="availability">
                     {% if item.stock > 0 %}
                       <span class="available">In Stock</span>
@@ -186,6 +186,7 @@
                       <span class="not_available">Out Of Stock</span>
                     {% endif %}
                   </p>
+                  </a>
                 </h6>
 
               </div>
