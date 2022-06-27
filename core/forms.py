@@ -68,16 +68,16 @@ class CheckoutForm(forms.Form):
 class CustomSignupForm(SignupForm):
     first_name = forms.CharField(max_length=30, label='First Name')
     last_name = forms.CharField(max_length=30, label='Last Name')
-    # phone_number = forms.CharField(max_length=10 )
-    # date_of_birth = forms.DateTimeField()
+    phone_number = forms.CharField(max_length=10 )
+    date_of_birth = forms.DateTimeField()
    
     
     def save(self, request):
         UserProfile.user = super(CustomSignupForm, self).save(request)
         UserProfile.user.first_name = self.cleaned_data['first_name']
         UserProfile.user.last_name = self.cleaned_data['last_name']
-        # UserProfile.user.phone_number = self.cleaned_data['phone_number']
-        # UserProfile.user.date_of_birth = self.cleaned_data['date_of_birth']
+        UserProfile.user.phone_number = self.cleaned_data['phone_number']
+        UserProfile.user.date_of_birth = self.cleaned_data['date_of_birth']
         
         
         
