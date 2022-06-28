@@ -110,10 +110,9 @@
         <!--Grid column-->
         <div class="col-md-6 text-center">
 
-          <h4 class="my-4 h4">More pictures of the product</h4>
+          <h5 class="my-4 h4">More pictures of the product</h5>
 
-          <p>See also these pictures to get a detailed idea about the product</p>
-
+        
         </div>
         <!--Grid column-->
 
@@ -153,10 +152,9 @@
         <!--Grid column-->
         <div class="col-md-6 text-center">
 
-          <h4 class="my-4 h4">Similar products for you</h4>
+          <h5 class="my-5 h5">Similar products for you</h5>
 
-          <p>We believe you will like these products</p>
-
+      
         </div>
         <!--Grid column-->
 
@@ -164,30 +162,35 @@
       <!--Grid row-->
 
       <!--Grid row-->
-      <div class="row wow fadeIn">
+      
 
-        {% for item in similar_item %}
-        
-        <!--Grid column-->
-        <div class="col-lg-3 col-md-12 mb-4">
 
-          
-          <div class="card" style="width: 11rem;height: 16.3rem;">
+      <section class="text-center mb-2">
+
+        <div class="row wow fadeIn">
+
+          {% for item in similar_item %}
+          <div style="width: 11rem;height: 16.3rem;" >
+
+            <div class="card card-pricing card-primary card-black" >
 
               <div class="view overlay">
-                {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top" {% endcomment %}
-                <img src="{{ item.image.url }}" class="card-img-top">
                 <a href="{{ item.get_absolute_url }}">
-                  <div class="mask rgba-white-slight"></div>
+                  <!-- <div class="mask rgba-white-slight"></div> -->
+
+                
+                <img src="{{ item.image.url }}" class="card-img-top">
+               
                 </a>
               </div>
+              
 
               <div class="card-body text-center">
                 <a href="" class="grey-text">
-                  <h5>{{ item.get_category_display }}</h5>
+                  <h6>{{ item.get_category_display }}</h6>
                 </a>
-                <h5>
-                  <strong>
+                <h6>
+                  
                     <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}
                       
                       
@@ -205,31 +208,43 @@
                       {% endif %}
                     
                     </a>
-                  </strong>
-                </h5>
+                 
+                </h6>
+                
 
-                <h4 class="font-weight-bold blue-text">
-                  <strong>R
+                <p >
                   {% if item.discount_price %}
-                  {{ item.discount_price }}
+                  <span class="mr-1">
+                    <del>R{{ item.price }}</del>
+                  </span>
+                  <span>R{{ item.discount_price }}</span>
                   {% else %}
-                  {{ item.price }}
+                  <span>R{{ item.price }}</span>
                   {% endif %}
-                  </strong>
-                </h4>
+                  <!-- <a href="" class="grey-text">
+
+                    
+                  <h6 class="availability">
+                    {% if item.stock > 0 %}
+                      <span class="available">In Stock</span>
+                    {% else %}
+                      <span class="not_available">Out Of Stock</span>
+                    {% endif %}
+                  </h6>
+                  </a> -->
+                </p>
+                 
+                </h6>
 
               </div>
 
             </div>
 
+          </div>
+          {% endfor %}
         </div>
-        <!--Grid column-->
-        {% endfor %}
-        
 
-        
-
-      </div>
+      </section>
       <!--Grid row-->
 
     
