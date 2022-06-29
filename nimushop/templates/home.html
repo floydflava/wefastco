@@ -9,7 +9,7 @@
 
 {% block content %}
   <!--Carousel Wrapper-->
-  <div id="carousel-example-1z" style="margin-top:-200px;margin-bottom: -20px;" class="carousel slide carousel-fade pt-4 feature-item" data-ride="carousel">
+  <div id="carousel-example-1z" style="margin-top:-300px;margin-bottom: -20px;" class="carousel slide carousel-fade pt-4 feature-item" data-ride="carousel">
 
     
     <!--Indicators-->
@@ -45,14 +45,14 @@
           
             
               
-              <div class="card" style="width: 50.0rem;">
+              <div class="card" style="width: 60.0rem;">
                 <a href="{{ item.get_absolute_url }}">  
                 <img
                 
                   src="{{ item.image.url }}"
                   class="card-img-bottom"
                   alt="..."
-                  height="456"
+                  height="460"
                   
                 />
                 </a>
@@ -119,7 +119,9 @@
       <!--Section: Products v.3-->
       <section class="text-center mb-2" >
 
-        <div class="row wow fadeIn"style="margin: top -50px;">
+        <div class="row wow fadeIn">
+
+          
 
           {% for item in page_obj %}
           <div style="width: 11rem;height: 16.3rem;" >
