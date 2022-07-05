@@ -1,0 +1,94 @@
+<div class="row d-flex justify-content-center wow fadeIn">
+
+    <!--Grid column-->
+    <div class="col-md-6 text-center">
+
+      <h5 class="my-5 h5">Exclusive products for you</h5>
+
+  
+    </div>
+    <!--Grid column-->
+
+  </div>
+  <!--Grid row-->
+
+  <!--Grid row-->
+  
+
+
+  <section class="text-center mb-2">
+
+    <div class="row wow fadeIn">
+
+      {% for item in items_feature_home %}
+      <div style="width: 11rem;height: 16.3rem;" >
+
+        <div class="card card-pricing card-primary card-black" >
+
+          <div class="view overlay">
+            <a href="{{ item.get_absolute_url }}">
+              <!-- <div class="mask rgba-white-slight"></div> -->
+
+            
+            <img src="{{ item.image.url }}" class="card-img-top">
+           
+            </a>
+          </div>
+          
+
+          <div class="card-body text-center">
+           
+            <h6>
+              
+                <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}
+                  
+                  
+                  {% if item.item_type %}
+
+                  <span class="badge badge-pill {{ item.get_label_display }}-color">
+                  
+                  
+                   {{ item.get_item_type_display }}</span>
+                
+                  {% else %}
+                   
+                   <span> </span>
+
+                  {% endif %}
+                
+                </a>
+             
+            </h6>
+            
+
+            <p >
+              {% if item.discount_price %}
+              <span class="mr-1">
+                <del>R{{ item.price }}</del>
+              </span>
+              <span>R{{ item.discount_price }}</span>
+              {% else %}
+              <span>R{{ item.price }}</span>
+              {% endif %}
+              <!-- <a href="" class="grey-text">
+
+                
+              <h6 class="availability">
+                {% if item.stock > 0 %}
+                  <span class="available">In Stock</span>
+                {% else %}
+                  <span class="not_available">Out Of Stock</span>
+                {% endif %}
+              </h6>
+              </a> -->
+            </p>
+             
+            </h6>
+
+          </div>
+
+        </div>
+
+      </div>
+      {% endfor %}
+    </div>

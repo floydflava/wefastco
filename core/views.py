@@ -73,6 +73,26 @@ def phones(request):
     
     return render(request, "phones.html", context)
 
+def exclusive_items(request):
+    
+    items = Item.objects.filter(category='P').order_by('-created_on')
+    items_feature_home = Item.objects.all().order_by('-created_on')[:5]
+    
+    paginator = Paginator(items, 8)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    
+    context = {
+
+       'items': items,
+       'page_obj': page_obj,
+       'items_feature_home': items_feature_home 
+    
+    }
+    
+    return render(request, "exclusive_items.html", context)
+
 def watches(request):
     
     items = Item.objects.filter(category='W').order_by('-created_on')
@@ -190,7 +210,7 @@ def home(request):
     
     items = Item.objects.all().order_by('-created_on')
     
-    items_feature_home = Item.objects.all().order_by('-created_on')[:5]
+    items_feature_home = Item.objects.all().order_by('created_on')[:6]
 
     
     

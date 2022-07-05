@@ -207,14 +207,31 @@ ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False  # a personal preference. True by default. I don't want users to be interrupted by logging in
-ACCOUNT_AUTHENTICATION_METHOD = 'email'  # a personal preference. I don't want to add 'i don't remember my username' like they did at Nintendo, it is stupid
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # a personal preference. I don't want to add 'i don't remember my username' like they did at Nintendo, it is stupid
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True          #* It's not working for some reason but I don't know why, we have Handled from forms.py 
+
+ACCOUNT_USERNAME_REQUIRED = True
+
+#* to solve subdomain users login for now
+ACCOUNT_EMAIL_VERIFICATION = 'optional' # to send mail for subscribers not to created users but it doesn't fix the issue
+
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = None # To prevent login on verification for created users but the subscribers affected    
+
+# ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = '/auth/email/success/'  
+
+# ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = '/'                 
+
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True  # try to solve the issue
+
+ACCOUNT_SESSION_REMEMBER = True
 
 ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = 'gen:email_success'  # a page to identify that email is confirmed when not logged in
 ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = 'gen:email_success'  # same but logged in
 
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 7  # a personal preference. 3 by default
-ACCOUNT_EMAIL_REQUIRED = True  # no questions here
-ACCOUNT_EMAIL_VERIFICATION = False  # as the email will be used for login
+
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True  # False by default
 ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True  # True by default
 # ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login'
@@ -230,15 +247,12 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = 'core:email_success'  # if you are not logged in
-
-ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = 'core:email_success'  # if you are logged in
-
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR,"sent_emails")
 UNIQUE_EMAIL = True  # just to be sure, ok
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 STRIPE_LIVE_PUBLIC_KEY= 'your-live-public-key'
 STRIPE_LIVE_SECRET_KEY= 'your-live-secret-key'

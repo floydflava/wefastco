@@ -23,6 +23,8 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('accessories/', views.accessories, name='accessories'),
     path('phones/', views.phones, name='phones'),
+    path('phones/', views.exclusive_items, name='exclusive_items'),
+
     path('watches/', views.watches, name='watches'),
     path('laptops/', views.laptops, name='laptops'),
    
