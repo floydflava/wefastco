@@ -1,6 +1,7 @@
 from multiprocessing import context
 import random
 import string
+from unicodedata import category
 
 from requests_toolbelt import user_agent
 
@@ -157,7 +158,7 @@ def oppo(request):
 def oneplus(request):
     
     items = Item.objects.filter(category='On').order_by('-created_on')
-    items_feature_home = Item.objects.all().order_by('-created_on')[:5]
+    items_feature_home = Item.objects.filter(category='P').order_by('-created_on')[:8]
     
     paginator = Paginator(items, 8)
     page_number = request.GET.get('page')
@@ -210,7 +211,8 @@ def home(request):
     
     items = Item.objects.all().order_by('-created_on')
     
-    items_feature_home = Item.objects.all().order_by('created_on')[:6]
+    items_feature_home = Item.objects.filter(category='A').order_by('-created_on')[:8]
+    laptops = Item.objects.filter(category='L').order_by('-created_on')[:8]
 
     
     
@@ -223,6 +225,7 @@ def home(request):
     context = {
         'items': items,
         'items_feature_home': items_feature_home,
+        'laptops':laptops,
         
         
         
