@@ -27,7 +27,20 @@
               <span class="clearfix d-none d-sm-inline-block"> Cart </span>
             </a>
           </li>
-      {% endif %}
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'account_login' %}">
+              <i class="fas fa-sign-in-alt"></i>
+              <span class="clearfix d-none d-sm-inline-block"> Login /</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'account_signup' %}">
+              <i class="fas fa-user-plus"></i>
+              <span class="clearfix d-none d-sm-inline-block"> Signup </span>
+            </a>
+          </li>
+          {% endif %}
       </ul>
       
       <!-- Collapse -->
@@ -124,20 +137,8 @@
 
             </form>
           </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="{% url 'account_login' %}">
-              <i class="fas fa-sign-in-alt"></i>
-              <span class="clearfix d-none d-sm-inline-block"> Login </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="{% url 'account_signup' %}">
-              <i class="fas fa-user-plus"></i>
-              <span class="clearfix d-none d-sm-inline-block"> Signup </span>
-            </a>
-          </li>
-          {% endif %}
+          {% endif%}
+         
           
           
         
