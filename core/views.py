@@ -268,7 +268,10 @@ def contact(request):
     else:
         form = ContactForm()
     return render(request, 'contact.html', {'form': form})
-
+    
+def email_success(request):
+    res = 'Email is verified!'
+    return HttpResponse('<p>%s</p>' % res)
 
 
 

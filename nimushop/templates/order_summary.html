@@ -5,7 +5,7 @@
     <div class="container">
 
     <div class="table-responsive text-nowrap">
-    <h2 class="ordertopfix">Order Summary</h2>
+    <h2 class="ordertopfix">Cart</h2>
     <table class="table orderfix">
         <thead>
         <tr>
@@ -55,7 +55,7 @@
             <td>
             {% if order_item.item.discount_price %}
                 R{{ order_item.get_total_discount_item_price }}
-                <span class="badge badge-primary">Saving ৳{{ order_item.get_amount_saved }}</span>
+                <span class="badge badge-primary">Saving R{{ order_item.get_amount_saved }}</span>
             {% else %}
                 R{{ order_item.get_total_item_price }}
             {% endif %}

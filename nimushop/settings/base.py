@@ -197,12 +197,44 @@ SOCIALACCOUNT_PROVIDERS = {
                 }
          }
 }
-ACCOUNT_EMAIL_REQUIRED=False
+ACCOUNT_EMAIL_REQUIRED=True
 ACCOUNT_USERNAME_REQURIED=True
 ACCOUNT_FORMS = {
 'signup': 'core.forms.CustomSignupForm',
 }
 
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
+
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False  # a personal preference. True by default. I don't want users to be interrupted by logging in
+ACCOUNT_AUTHENTICATION_METHOD = 'email'  # a personal preference. I don't want to add 'i don't remember my username' like they did at Nintendo, it is stupid
+
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = 'gen:email_success'  # a page to identify that email is confirmed when not logged in
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = 'gen:email_success'  # same but logged in
+
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 7  # a personal preference. 3 by default
+ACCOUNT_EMAIL_REQUIRED = True  # no questions here
+ACCOUNT_EMAIL_VERIFICATION = False  # as the email will be used for login
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True  # False by default
+ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True  # True by default
+# ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login'
+ACCOUNT_USERNAME_BLACKLIST = ['yomama',]
+ACCOUNT_USERNAME_MIN_LENGTH = 4  # a personal preference
+ACCOUNT_SESSION_REMEMBER = True  # None by default (to ask 'Remember me?'). I want the user to be always logged in
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'floydphuti911@gmail.com'
+EMAIL_HOST_PASSWORD = 'Floydfuckme-3'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = 'core:email_success'  # if you are not logged in
+
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = 'core:email_success'  # if you are logged in
+
+UNIQUE_EMAIL = True  # just to be sure, ok
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 

@@ -6,7 +6,7 @@ import dj_database_url
 DEBUG = True  
 
 
-ALLOWED_HOSTS = ['paukau.herokuapp.com',"wefast.co.za","www.wefast.co.za"]
+ALLOWED_HOSTS = ['paukau.herokuapp.com',"wefast.co.za","wwww.wefast.co.za"]
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},

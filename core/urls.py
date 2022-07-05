@@ -34,7 +34,8 @@ urlpatterns = [
     
     path('contact/', views.contact, name='contact'),
     path('orders-success/', views.OrderSuccessView, name='orders-success'),
-
+    path('email_success/', views.email_success, 
+    name='email_success'),
 
 
 
