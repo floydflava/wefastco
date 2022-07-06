@@ -12,13 +12,7 @@
       <div class="row wow fadeIn" style="margin-top: -110px;">
 
         <!--Grid column-->
-        <div class="card" style="width: 22rem;height: 18rem;">
-          <img
-            src="{{ item.image.url }}"
-            class="card-img-top"
-            alt="..."
-          />
-        </div>
+        {% include "popup_image.html" %}
         <!--Grid column-->
 
        
@@ -102,7 +96,7 @@
       </div>
       <!--Grid row-->
 
-      <hr>
+      
 
       <!--Grid row-->
       <div class="row d-flex justify-content-center wow fadeIn">
@@ -110,7 +104,7 @@
         <!--Grid column-->
         <div class="col-md-6 text-center">
 
-          <h5 class="my-4 h4">More pictures of the product</h5>
+          <h6 class="my-4 h6">More pictures of the product</h6>
 
         
         </div>
@@ -120,31 +114,20 @@
       <!--Grid row-->
 
       <!--Grid row-->
-      <div class="row wow fadeIn">
-
-        {% for item in image_list %}
-        
-        <!--Grid column-->
-        <div class="col-lg-4 col-md-12 mb-4">
-
-          <div class="view overlay border">
-                
-                <img src="{{ item.image.url }}" class="card-img">
-                
-              </div>
-          
-
-        </div>
-        <!--Grid column-->
-        {% endfor %}
-        
-
-        
-
-      </div>
+     
       <!--Grid row-->
+      {% for item in image_list %}
+      <img id="myImg" src="{{ item.image.url }}" alt="Snow" style="width:100%;max-width:300px">
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+      </div>
+      {% endfor %}
+      
 
-       <hr>
+      
 
       <!--Grid row-->
       <div class="row d-flex justify-content-center wow fadeIn">
