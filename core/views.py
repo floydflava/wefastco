@@ -213,6 +213,8 @@ def home(request):
     
     items_feature_home = Item.objects.filter(category='A').order_by('-created_on')[:8]
     laptops = Item.objects.filter(category='L').order_by('-created_on')[:8]
+    watches_item = Item.objects.filter(category='W').order_by('-created_on')[:8]
+
 
     
     
@@ -226,6 +228,7 @@ def home(request):
         'items': items,
         'items_feature_home': items_feature_home,
         'laptops':laptops,
+        'watches_item':watches_item,
         
         
         

@@ -109,19 +109,28 @@
 
 
  
- 
+  <div class="col-md-12 text-center">
+
+    <h6 class="my-5 h6">All Brands</h6>
+
+
+  </div>
   
   <main class="mt-3 pt-2" ></main>
+  
+  
     <div class=" col-sm-12 raw-mb-2 " >
 
       <!--/.Navbar-->
 
       <!--Section: Products v.3-->
       <section class="text-center mb-2" >
+        
 
         <div class="row wow fadeIn">
 
-          
+         
+
 
           {% for item in page_obj %}
           <div style="width: 11rem;height: 16.3rem;" >
@@ -201,6 +210,8 @@
       </section>
       {% include "exclusive_items.html" %}
       {% include "laptop.html" %}
+      {% include "watches_item.html" %}
+
 
 
     

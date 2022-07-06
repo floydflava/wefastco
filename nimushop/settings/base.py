@@ -239,13 +239,11 @@ ACCOUNT_USERNAME_BLACKLIST = ['yomama',]
 ACCOUNT_USERNAME_MIN_LENGTH = 4  # a personal preference
 ACCOUNT_SESSION_REMEMBER = True  # None by default (to ask 'Remember me?'). I want the user to be always logged in
 
+EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'floydphuti911@gmail.com'
+EMAIL_HOST_USER = DEFAULT_FROM_EMAIL = 'floydphuti911@gmail.com'
 EMAIL_HOST_PASSWORD = 'Floydfuckme-3'
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = os.path.join(BASE_DIR,"sent_emails")
