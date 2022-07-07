@@ -198,6 +198,32 @@ def bkash(request):
     
     return render(request, "bkash.html", context)
 
+def contact_success(request):
+
+    
+    
+    context = {
+
+       
+    
+    }
+    
+    return render(request, "contact_success.html", context)
+
+def order_success(request):
+
+    
+    
+    context = {
+
+       
+    
+    }
+    
+    return render(request, "order_success.html", context)
+
+
+
 
 
 def products(request):
@@ -290,10 +316,11 @@ def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            pass  # does nothing, just trigger the validation
-    else:
-        form = ContactForm()
-    return render(request, 'contact.html', {'form': form})
+           form.save()
+           return render(request, 'contact_success.html') # does nothing, just trigger the validation
+    form = ContactForm()
+    context = {'form': form}
+    return render(request, 'contact.html', context)
     
 def email_success(request):
     res = 'Email is verified!'
@@ -526,7 +553,7 @@ class PaymentView(View):
             order.save()
 
             messages.success(self.request, "Your order was successful!")
-            return redirect("core:orders-success")
+            return redirect("core:order_success")
 
         
         else:

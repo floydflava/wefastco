@@ -1,3 +1,4 @@
+from logging import PlaceHolder
 from django import forms
 from .models import BkasPayment
 from django_countries.fields import CountryField
@@ -9,6 +10,8 @@ from django.conf import settings
 from django.dispatch import receiver
 from django.http import HttpRequest
 from django.middleware.csrf import get_token
+from django.forms import ModelForm
+from .models import Contact
 
 
 PAYMENT_CHOICES = (
@@ -66,10 +69,10 @@ class CheckoutForm(forms.Form):
         widget=forms.RadioSelect, choices=PAYMENT_CHOICES)
 
 class CustomSignupForm(SignupForm):
-    first_name = forms.CharField(max_length=30, label='First Name')
-    last_name = forms.CharField(max_length=30, label='Last Name')
-    phone_number = forms.CharField(max_length=10 )
-    date_of_birth = forms.DateTimeField()
+    first_name = forms.CharField(max_length=30, label='First Name', widget=forms.TextInput(attrs={'placeholder': 'name'}))
+    last_name = forms.CharField(max_length=30, label='Last Name', widget=forms.TextInput(attrs={'placeholder': 'surname'}))
+    phone_number = forms.CharField(max_length=10, widget=forms.TextInput(attrs={'placeholder': 'eg:0680920122'}) )
+    date_of_birth = forms.DateTimeField(widget=forms.DateInput(attrs={'placeholder': 'DD-MM-YYYY', 'required': 'required'}))
    
     
     def save(self, request):
@@ -132,23 +135,34 @@ class PaymentFormBkash(forms.Form):
     transaction_id = forms.CharField(required=False)
 
 
-class ContactForm(forms.Form):
-    name = forms.CharField(max_length=30)
-    email = forms.EmailField(max_length=254)
-    message = forms.CharField(
-        max_length=2000,
-        widget=forms.Textarea(),
-        help_text='Write here your message!'
-    )
-    source = forms.CharField(       # A hidden input for internal use
-        max_length=50,              # tell from which page the user sent the message
-        widget=forms.HiddenInput()
-    )
 
-    def clean(self):
-        cleaned_data = super(ContactForm, self).clean()
-        name = cleaned_data.get('name')
-        email = cleaned_data.get('email')
-        message = cleaned_data.get('message')
-        if not name and not email and not message:
-            raise forms.ValidationError('You have to write something!')
+
+class ContactForm(ModelForm):
+    class Meta:
+        model = Contact
+        fields = '__all__'
+
+
+# class ContactForm(forms.Form):
+#     name = forms.CharField(max_length=30)
+#     email = forms.EmailField(max_length=254)
+#     message = forms.CharField(
+#         max_length=2000,
+#         widget=forms.Textarea(),
+#         help_text='Write here your message!'
+#     )
+#     source = forms.CharField(       # A hidden input for internal use
+#         max_length=50,              # tell from which page the user sent the message
+#         widget=forms.HiddenInput()
+#     )
+
+#     def clean(self):
+#         cleaned_data = super(ContactForm, self).clean()
+#         name = cleaned_data.get('name')
+#         email = cleaned_data.get('email')
+#         message = cleaned_data.get('message')
+
+        
+
+#         if not name and not email and not message:
+#             raise forms.ValidationError('You have to write something!')

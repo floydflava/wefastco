@@ -15,9 +15,7 @@ CATEGORY_CHOICES = (
     ('P', 'Phones'),
     ('W', 'Watches'),
     ('A', 'Accessories'),
-    ('R', 'Realme'),
-    ('Op', 'Oppo'),
-    ('On', 'OnePlus')
+    
     
     
 )
@@ -31,7 +29,8 @@ LABEL_CHOICES = (
 ITEM_TYPE = (
     ('B', 'BestSeller'),
     ('N', 'New'),
-    ('D', 'Discount')
+    ('D', 'Discount'),
+    ('P','Promotion'),
 )
 
 
@@ -248,7 +247,15 @@ class BkasPayment(models.Model):
 
     def __str__(self):
         return self.user.username
-    
+
+class Contact(models.Model):
+    name = models.CharField(max_length=20)
+    email = models.EmailField()
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+
+    def __str__(self):
+        return self.email    
     
 
 class Coupon(models.Model):

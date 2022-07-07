@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <main >
+    <div class="container wow fadeIn">
+
+        
+        
+       
+        
+        <div>
+            
+        
+           <h1 class="my-5 h2 text-center"><img src='/static/img/wefast-logo.png' class='iconDetails'>We Have Recieved your order</h1>
+           <h5 class=" text-center"  >
+            <a href="{% url 'core:orders-success' %}" class="nav-link waves-effect">
+              <i class="fas fa-truck"></i>
+              <span class="clearfix d-none d-sm-inline-block">Track Order </span>
+            </a>
+           </h5>
+           
+           <h1 class="my-5 h2 text-center" class='iconDetails'>{{ Order.ref_code }}</h1>
+          
+
+        </div>
+
+    </div>
+  </main>  
+{%endblock%}

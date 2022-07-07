@@ -35,6 +35,9 @@ urlpatterns = [
     path('bkash/', views.bkash, name='bkash'),
     
     path('contact/', views.contact, name='contact'),
+    path('contact_success/', views.contact_success, name='contact_success'),
+    path('order_success/', views.order_success, name='order_success'),
+
     path('orders-success/', views.OrderSuccessView, name='orders-success'),
     path('email_success/', views.email_success, 
     name='email_success'),
