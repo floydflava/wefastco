@@ -234,6 +234,18 @@ def phone_item(request):
     
     return render(request, "phone_item.html", context)
 
+def watches_item(request):
+
+    
+    
+    context = {
+
+       
+    
+    }
+    
+    return render(request, "watches_item.html", context)
+
 
 
 
@@ -270,7 +282,7 @@ def home(request):
         'items_feature_home': items_feature_home,
         'laptops':laptops,
         'watches_item':watches_item,
-        ' phone_item': phone_item,
+        'phone_item': phone_item,
         
         
         'page_obj': page_obj
