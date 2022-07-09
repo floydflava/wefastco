@@ -238,7 +238,7 @@ def products(request):
 
 def home(request):
     
-    items = Item.objects.all().order_by('-created_on')
+    items = Item.objects.all().order_by('created_on')
     
     items_feature_home = Item.objects.filter(category='A').order_by('-created_on')[:8]
     laptops = Item.objects.filter(category='L').order_by('-created_on')[:8]
