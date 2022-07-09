@@ -23,7 +23,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('accessories/', views.accessories, name='accessories'),
     path('phones/', views.phones, name='phones'),
-    path('phones/', views.exclusive_items, name='exclusive_items'),
+    path('exclusive_items/', views.exclusive_items, name='exclusive_items'),
 
     path('watches/', views.watches, name='watches'),
     path('laptops/', views.laptops, name='laptops'),
@@ -37,6 +37,8 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('contact_success/', views.contact_success, name='contact_success'),
     path('order_success/', views.order_success, name='order_success'),
+    path('phone_item/', views.phone_item, name='phone_item'),
+
 
     path('orders-success/', views.OrderSuccessView, name='orders-success'),
     path('email_success/', views.email_success, 

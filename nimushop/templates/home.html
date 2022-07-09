@@ -8,8 +8,9 @@
 
 
 {% block content %}
+<div class="container-lg">
   <!--Carousel Wrapper-->
-  <div id="carousel-example-1z" style="margin-top:-100px;margin-bottom: -20px;" class="carousel slide carousel-fade pt-4 feature-item" data-ride="carousel">
+  <div id="carousel-example-1z" style="margin-top:-0px;margin-bottom: -100px;" class="carousel slide carousel-fade pt-3 feature-item" data-ride="carousel">
 
     
     <!--Indicators-->
@@ -52,7 +53,7 @@
                   src="{{ item.image.url }}"
                   class="card-img-bottom"
                   alt="..."
-                  height="200"
+                  height="300"
                   
                 />
                 </a>
@@ -209,6 +210,8 @@
 
       </section>
       {% include "exclusive_items.html" %}
+      {% include "phone_item.html" %}
+
       {% include "laptop.html" %}
       {% include "watches_item.html" %}
 
@@ -249,7 +252,7 @@
 
     </div>
   </main>
-
+</div>
 {% endblock content %}
 
 

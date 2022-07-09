@@ -222,6 +222,19 @@ def order_success(request):
     
     return render(request, "order_success.html", context)
 
+def phone_item(request):
+
+    
+    
+    context = {
+
+       
+    
+    }
+    
+    return render(request, "phone_item.html", context)
+
+
 
 
 
@@ -240,6 +253,8 @@ def home(request):
     items_feature_home = Item.objects.filter(category='A').order_by('-created_on')[:8]
     laptops = Item.objects.filter(category='L').order_by('-created_on')[:8]
     watches_item = Item.objects.filter(category='W').order_by('-created_on')[:8]
+    phone_item = Item.objects.filter(category='P').order_by('-created_on')[:8]
+
 
 
     
@@ -255,7 +270,7 @@ def home(request):
         'items_feature_home': items_feature_home,
         'laptops':laptops,
         'watches_item':watches_item,
-        
+        ' phone_item': phone_item,
         
         
         'page_obj': page_obj
