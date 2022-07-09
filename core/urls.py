@@ -37,9 +37,7 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('contact_success/', views.contact_success, name='contact_success'),
     path('order_success/', views.order_success, name='order_success'),
-    path('phone_item/', views.phone_item, name='phone_item'),
-    path('watches_item/', views.watches_item, name='watches_item'),
-
+    
 
 
     path('orders-success/', views.OrderSuccessView, name='orders-success'),

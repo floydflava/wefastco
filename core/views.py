@@ -222,29 +222,7 @@ def order_success(request):
     
     return render(request, "order_success.html", context)
 
-def phone_item(request):
 
-    
-    
-    context = {
-
-       
-    
-    }
-    
-    return render(request, "phone_item.html", context)
-
-def watches_item(request):
-
-    
-    
-    context = {
-
-       
-    
-    }
-    
-    return render(request, "watches_item.html", context)
 
 
 
