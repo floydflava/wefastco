@@ -9,7 +9,7 @@
 
 {% block content %}
   <!--Carousel Wrapper-->
-  <div id="carousel-example-1z" style="margin-top:-300px;margin-bottom: -20px;" class="carousel slide carousel-fade pt-4 feature-item" data-ride="carousel">
+  <div id="carousel-example-1z" style="margin-top:-100px;margin-bottom: -20px;" class="carousel slide carousel-fade pt-4 feature-item" data-ride="carousel">
 
     
     <!--Indicators-->
@@ -17,7 +17,7 @@
       
        {% for item in items_feature_home %}
       
-         <li data-target="#carousel-example-1z" data-slide-to="{{ forloop.counter0 }}" class=" {% if forloop.counter0 == 0 %} active {% endif %}"></li>
+         <!-- <li data-target="#carousel-example-1z" data-slide-to="{{ forloop.counter0 }}" class=" {% if forloop.counter0 == 0 %} active {% endif %}"></li> -->
       
       {% endfor %}
     
@@ -45,14 +45,14 @@
           
             
               
-              <div class="card" style="width: 60.0rem;">
+              <div class="card" style="width: 30.0rem;">
                 <a href="{{ item.get_absolute_url }}">  
                 <img
                 
                   src="{{ item.image.url }}"
                   class="card-img-bottom"
                   alt="..."
-                  height="460"
+                  height="200"
                   
                 />
                 </a>
